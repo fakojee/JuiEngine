@@ -1,0 +1,184 @@
+/* Google Fonts'tan Inter yazı tipini projeye dahil etme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* YENİ Renk Paleti: Siyah/Mor/Pembe (Cyberpunk Teması) */
+:root {
+    --bg-color: #121218;               /* Koyu Kömür Rengi Arkaplan */
+    --surface-color: #1a1a22;          /* Kart, Header gibi yüzeylerin rengi */
+    --font-color: #e2e8f0;             /* Göz yormayan Açık Gri/Beyaz Metin */
+    --primary-color: #8b5cf6;          /* Ana Vurgu Rengi (Canlı Mor) */
+    --secondary-color: #ec4899;        /* İkincil Vurgu Rengi (Canlı Pembe) */
+    --border-color: #2e2e3a;           /* Hafif belirgin kenarlık rengi */
+    --font-color-muted: #94a3b8;       /* Daha soluk metinler için */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+header {
+    background: rgba(26, 26, 34, 0.8); /* Hafif transparan yüzey rengi */
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px); /* Arkaplanı bulanıklaştırma efekti */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffffff; /* Logonun daha parlak olması için */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.logo:hover {
+    color: var(--primary-color);
+}
+
+nav ul { padding: 0; list-style: none; margin: 0; }
+nav ul li { display: inline; margin-left: 25px; }
+nav a { color: var(--font-color-muted); text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.2s ease-in-out; }
+nav a:hover { color: var(--primary-color); }
+
+main { padding: 3rem 0; }
+
+.page-title { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; color: #ffffff; }
+.page-subtitle { font-size: 1.2rem; color: var(--font-color-muted); margin-bottom: 2.5rem; max-width: 600px; }
+
+/* --- Buton Stilleri --- */
+.button-group { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+.btn { display: inline-block; padding: 12px 24px; font-size: 1rem; font-weight: 500; text-decoration: none; border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: all 0.2s ease-in-out; }
+
+/* Ana Buton (Mor) */
+.btn-primary { background-color: var(--primary-color); color: #ffffff; }
+.btn-primary:hover { background-color: #7c3aed; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); }
+
+/* İkincil Buton (Pembe Çerçeveli) */
+.btn-secondary { background-color: transparent; color: var(--secondary-color); border-color: var(--secondary-color); }
+.btn-secondary:hover { background-color: var(--secondary-color); color: #ffffff; }
+
+footer { text-align: center; padding: 2rem 0; margin-top: 3rem; background-color: var(--surface-color); border-top: 1px solid var(--border-color); color: var(--font-color-muted); font-size: 0.9rem; }
+
+/* --- Kart ve İçerik Bölümü Stilleri --- */
+.content-section, .version-log, .character-card { background-color: var(--surface-color); border-radius: 12px; border: 1px solid var(--border-color); transition: border-color 0.3s ease, transform 0.3s ease; }
+.content-section { padding: 2rem; }
+.content-section:hover, .version-log:hover, .character-card:hover { transform: translateY(-5px); }
+
+.content-section h2 { margin-top: 0; color: #ffffff; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; display: inline-block; }
+.separator { border: none; height: 1px; background-color: var(--border-color); margin: 3rem 0; }
+
+/* --- Sürüm Notları Stilleri --- */
+.version-log { padding: 2rem; }
+.version-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.version-title { font-size: 1.8rem; font-weight: 700; color: #ffffff; margin: 0; }
+.version-date { font-size: 1rem; font-weight: 400; color: var(--font-color-muted); margin-left: 1rem; }
+.version-warning { background-color: rgba(236, 72, 153, 0.1); color: var(--secondary-color); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.9rem; font-weight: 500; border: 1px solid var(--secondary-color); }
+
+.feature-list { list-style: none; padding: 0; }
+.feature-item { margin-bottom: 1.5rem; }
+.feature-item h4 { font-size: 1.1rem; font-weight: 500; color: var(--font-color); margin: 0 0 0.5rem 0; }
+.feature-description { color: var(--font-color-muted); margin: 0; padding-left: 1.2rem; border-left: 3px solid var(--primary-color); }
+
+/* --- Karakter Galerisi Stilleri --- */
+.character-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.character-card { overflow: hidden; display: flex; flex-direction: column; }
+.character-card:hover { border-color: var(--primary-color); }
+.card-image { width: 100%; height: 350px; object-fit: cover; }
+.card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+.card-title { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin: 0 0 0.5rem 0; }
+.card-description { color: var(--font-color-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+.card-content .btn { align-self: flex-start; }
+
+/* --- Hakkımda Sayfası Stilleri --- */
+.about-section {
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap; /* Ekran küçülünce alt alta geçmesi için */
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.about-image {
+    flex-basis: 200px; /* Resim için ayrılan alan */
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+.profile-pic {
+    width: 100%;
+    border-radius: 50%; /* Resmi yuvarlak yapar */
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+.about-content {
+    flex-basis: 0;
+    flex-grow: 999; /* Resimden kalan tüm alanı kapla */
+    min-width: 60%; /* Metnin çok sıkışmasını önle */
+}
+
+.about-content h2 { /* İsim Başlığı */
+    margin: 0;
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.about-content p {
+    margin: 0.5rem 0 2rem 0;
+    color: var(--font-color-muted);
+    font-size: 1.1rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* İki sütunlu bilgi alanı */
+    gap: 2rem;
+}
+
+.info-box h4 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.info-box p, .info-box a {
+    color: var(--font-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    word-break: break-all; /* Uzun linklerin taşmasını önle */
+}
+
+.info-box a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Ekran 768px'den küçükse tek sütuna düşür */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+      }
